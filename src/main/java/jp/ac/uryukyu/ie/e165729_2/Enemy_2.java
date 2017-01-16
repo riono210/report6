@@ -9,6 +9,7 @@ public class Enemy_2 extends LivingThing_2 {
         super(name, maximumHP, maximumMP, attack, speed);
     }
 
+
     @Override
     public void attack(LivingThing_2 opponent) {
         // 死んでいない時
@@ -31,21 +32,15 @@ public class Enemy_2 extends LivingThing_2 {
     }
 
     // 敵の行動決定
-    public int command(LivingThing_2 opponent, int deci){
+    public void command(LivingThing_2 opponent, int deci){
         if (deci <= 4 ){
             attack(opponent);
-            return (this.getSpeed()+ 1);
         }else if(deci <= 6 ){
             magic(opponent);
-            return  (this.getSpeed() + 10);
-        }else if (deci <= 8 ){
+        }else if (deci <= 8 && isDead()== false){
             System.out.printf("%sはじっとこちらを見ている。\n",getName());
-            return 1;
-        }else if (deci <= 10 ){
+        }else if (deci <= 10 && isDead() == false){
             escape(opponent);
-            return 0;
-        }else {
-            return -1;
         }
     }
 

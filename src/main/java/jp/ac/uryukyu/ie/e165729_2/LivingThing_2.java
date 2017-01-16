@@ -9,6 +9,7 @@ abstract class LivingThing_2 {
     private int magicPoint;
     private int attack;
     private int speed;
+    private int agility;
     private boolean dead;
 
     public LivingThing_2(String name, int maximumHP, int maximumMP, int attack, int speed) {
@@ -55,6 +56,12 @@ abstract class LivingThing_2 {
 
     public int getSpeed() { return speed;}
 
+    // 実際の素早さの設定
+    public void setAgility(){this.agility = (int) (this.getSpeed() + (Math.random() *10));}
+
+   public int getAgility(){return agility;}
+
+
     public void attack(LivingThing_2 opponent) {
         // 死んでいない時
         if (dead == false) {
@@ -94,7 +101,8 @@ abstract class LivingThing_2 {
         }
     }
 
-    abstract public int command(LivingThing_2 opponent, int deci);
+    // コマンド決定。引数は相手と行動の番号
+    abstract public void command(LivingThing_2 opponent, int deci);
 
 }
 

@@ -6,8 +6,9 @@ import java.util.Comparator;
 /**
  * Created by e165729 on 2017/01/16.
  */
+// 設定されたagilityの大きい順にソート
 public class OrderComparator implements Comparator<ActionDecision>{
     public int compare(ActionDecision actionDecision1, ActionDecision actionDecision2){
-        return actionDecision2.getSpeed() - actionDecision1.getSpeed();
+        return actionDecision2.getAgility() - actionDecision1.getAgility();
     }
 }
