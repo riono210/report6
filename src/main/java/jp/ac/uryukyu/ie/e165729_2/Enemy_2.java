@@ -31,7 +31,6 @@ public class Enemy_2 extends LivingThing_2 {
     }
 
     // 敵の行動決定
-    @Override
     public int command(LivingThing_2 opponent, int deci){
         if (deci <= 4 ){
             attack(opponent);

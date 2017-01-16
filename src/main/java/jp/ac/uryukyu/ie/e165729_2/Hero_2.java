@@ -30,4 +30,20 @@ public class Hero_2 extends LivingThing_2 {
             }
         }
     }
+
+    public int command(LivingThing_2 opponent, int deci){
+
+        if (deci == 0){
+            attack(opponent);
+            return (this.getSpeed() + 1);
+        }else if(deci == 1){
+            magic(opponent);
+            return (this.getSpeed() + 10);
+        }else if (deci == 2){
+            escape(opponent);
+            return 0;
+        }
+        return -1;
+    }
+
 }

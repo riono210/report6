@@ -3,7 +3,7 @@ package jp.ac.uryukyu.ie.e165729_2;
 /**
  * Created by e165729 on 2017/01/15.
  */
-public class LivingThing_2 {
+abstract class LivingThing_2 {
     private String name;
     private int hitPoint;
     private int magicPoint;
@@ -91,25 +91,10 @@ public class LivingThing_2 {
     public void escape(LivingThing_2 oppoent) {
         if (oppoent.dead == false) {
             this.dead = true;
-            System.out.printf("%sは逃げ出した!\n", name);
         }
     }
 
-    public int command(LivingThing_2 opponent, int deci){
-
-        if (deci == 0){
-            attack(opponent);
-            return (this.getSpeed() + 1);
-        }else if(deci == 1){
-            magic(opponent);
-            return (this.getSpeed() + 10);
-        }else if (deci == 2){
-            escape(opponent);
-            return 0;
-        }
-        return -1;
-    }
-
+    abstract public int command(LivingThing_2 opponent, int deci);
 
 }
 
